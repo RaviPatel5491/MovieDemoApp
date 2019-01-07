@@ -1,0 +1,20 @@
+PODS:
+  - Cosmos (18.0.1)
+  - PageMenu (2.0.0)
+
+DEPENDENCIES:
+  - Cosmos (~> 18.0)
+  - PageMenu
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Cosmos
+    - PageMenu
+
+SPEC CHECKSUMS:
+  Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
+  PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
+
+PODFILE CHECKSUM: 9be4aa583d6fe7c15caba499140a503a640a4bbf
+
+COCOAPODS: 1.5.3
