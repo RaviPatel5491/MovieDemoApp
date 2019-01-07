@@ -1,20 +1,40 @@
 PODS:
-  - Cosmos (18.0.1)
+  - Alamofire (4.8.0)
+  - Cosmos (11.0.3)
+  - FSPagerView (0.7.2)
   - PageMenu (2.0.0)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - Cosmos (~> 18.0)
+  - Alamofire
+  - Cosmos (~> 11.0)
+  - FSPagerView (~> 0.7.1)
   - PageMenu
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Cosmos
+    - FSPagerView
     - PageMenu
 
+EXTERNAL SOURCES:
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  SVProgressHUD:
+    :commit: e2a6aaa12321962cbe9fbecc370475f369c6566c
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
 SPEC CHECKSUMS:
-  Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Cosmos: eb506859929f4add2d2aec822a27efb2f718a95d
+  FSPagerView: 7515f63c424da71623d299d4fbbfb3dd884642ff
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 9be4aa583d6fe7c15caba499140a503a640a4bbf
+PODFILE CHECKSUM: a1ff85218426110d3278b3c25ff3768259b8274c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2

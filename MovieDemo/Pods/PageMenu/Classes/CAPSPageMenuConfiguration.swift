@@ -9,15 +9,15 @@
 import UIKit
 
 public class CAPSPageMenuConfiguration {
-    open var menuHeight : CGFloat = 50.0
+    open var menuHeight : CGFloat = 34.0
     open var menuMargin : CGFloat = 15.0
     open var menuItemWidth : CGFloat = 111.0
     open var selectionIndicatorHeight : CGFloat = 3.0
     open var scrollAnimationDurationOnMenuItemTap : Int = 500 // Millisecons
-    open var selectionIndicatorColor : UIColor = UIColor.black
-    open var selectedMenuItemLabelColor : UIColor = UIColor.black
+    open var selectionIndicatorColor : UIColor = UIColor.white
+    open var selectedMenuItemLabelColor : UIColor = UIColor.white
     open var unselectedMenuItemLabelColor : UIColor = UIColor.lightGray
-    open var scrollMenuBackgroundColor : UIColor = UIColor.white
+    open var scrollMenuBackgroundColor : UIColor = UIColor.black
     open var viewBackgroundColor : UIColor = UIColor.white
     open var bottomMenuHairlineColor : UIColor = UIColor.white
     open var menuItemSeparatorColor : UIColor = UIColor.lightGray

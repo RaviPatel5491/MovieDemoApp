@@ -139,9 +139,9 @@ open class CAPSPageMenu: UIViewController {
         //Setup storyboard
         self.view.frame = CGRect(x: 0, y: 0, width: controller.view.frame.size.width, height: controller.view.frame.size.height)
         if usingStoryboards {
-            controller.addChild(self)
+            controller.addChildViewController(self)
             controller.view.addSubview(self.view)
-            didMove(toParent: controller)
+            didMove(toParentViewController: controller)
         }
         else {
             controller.view.addSubview(self.view)
@@ -211,24 +211,24 @@ extension CAPSPageMenu {
         
         let newVC = controllerArray[index]
         
-        newVC.willMove(toParent: self)
+        newVC.willMove(toParentViewController: self)
         
         newVC.view.frame = CGRect(x: self.view.frame.width * CGFloat(index), y: configuration.menuHeight, width: self.view.frame.width, height: self.view.frame.height - configuration.menuHeight)
         
-        self.addChild(newVC)
+        self.addChildViewController(newVC)
         self.controllerScrollView.addSubview(newVC.view)
-        newVC.didMove(toParent: self)
+        newVC.didMove(toParentViewController: self)
     }
     
     func removePageAtIndex(_ index : Int) {
         let oldVC = controllerArray[index]
         
-        oldVC.willMove(toParent: nil)
+        oldVC.willMove(toParentViewController: nil)
         
         oldVC.view.removeFromSuperview()
-        oldVC.removeFromParent()
+        oldVC.removeFromParentViewController()
         
-        oldVC.didMove(toParent: nil)
+        oldVC.didMove(toParentViewController: nil)
     }
     
     

@@ -19,6 +19,14 @@
 		4121017121E0020A00D3F7E3 /* PageMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4121017021E0020A00D3F7E3 /* PageMenu.framework */; };
 		4121017521E0D04200D3F7E3 /* Black_Panther_(film)_poster_005.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4121017421E0D04100D3F7E3 /* Black_Panther_(film)_poster_005.jpg */; };
 		4121017721E0D22A00D3F7E3 /* MoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121017621E0D22A00D3F7E3 /* MoviesCell.swift */; };
+		5E85232A21E1FBE1000F9E4E /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85232921E1FBE1000F9E4E /* AppUtility.swift */; };
+		5E85232C21E1FC01000F9E4E /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E85232B21E1FC01000F9E4E /* SVProgressHUD.framework */; };
+		5E85232E21E1FE02000F9E4E /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85232D21E1FE02000F9E4E /* ApiManager.swift */; };
+		5EB85AD421E0ECB5008F0F86 /* FSPagerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB85AD321E0ECB5008F0F86 /* FSPagerView.framework */; };
+		5EB85AD721E0ECC7008F0F86 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB85AD621E0ECC7008F0F86 /* ExtensionManager.swift */; };
+		5EB85ADB21E0ECCF008F0F86 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB85AD921E0ECCF008F0F86 /* HomeVC.swift */; };
+		5EB85ADC21E0ECCF008F0F86 /* PagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB85ADA21E0ECCF008F0F86 /* PagerCell.swift */; };
+		5EB85ADF21E0ECE0008F0F86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB85ADE21E0ECE0008F0F86 /* HomeViewModel.swift */; };
 		F9D913FA2B6A15250CD397F5 /* Pods_MovieDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44BF76A6B5EA0C369FEF072 /* Pods_MovieDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +47,14 @@
 		4121017421E0D04100D3F7E3 /* Black_Panther_(film)_poster_005.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Black_Panther_(film)_poster_005.jpg"; sourceTree = "<group>"; };
 		4121017621E0D22A00D3F7E3 /* MoviesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCell.swift; sourceTree = "<group>"; };
 		5CA04B029D9F243BC4B90E1B /* Pods-MovieDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieDemo/Pods-MovieDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5E85232921E1FBE1000F9E4E /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		5E85232B21E1FC01000F9E4E /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E85232D21E1FE02000F9E4E /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		5EB85AD321E0ECB5008F0F86 /* FSPagerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EB85AD621E0ECC7008F0F86 /* ExtensionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
+		5EB85AD921E0ECCF008F0F86 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		5EB85ADA21E0ECCF008F0F86 /* PagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerCell.swift; sourceTree = "<group>"; };
+		5EB85ADE21E0ECE0008F0F86 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8BBFB817CC24CDB4857807C8 /* Pods-MovieDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieDemo/Pods-MovieDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F44BF76A6B5EA0C369FEF072 /* Pods_MovieDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -48,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E85232C21E1FC01000F9E4E /* SVProgressHUD.framework in Frameworks */,
+				5EB85AD421E0ECB5008F0F86 /* FSPagerView.framework in Frameworks */,
 				4121017121E0020A00D3F7E3 /* PageMenu.framework in Frameworks */,
 				F9D913FA2B6A15250CD397F5 /* Pods_MovieDemo.framework in Frameworks */,
 			);
@@ -68,6 +86,8 @@
 		1EC4F0309C34EFACAB26FE42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E85232B21E1FC01000F9E4E /* SVProgressHUD.framework */,
+				5EB85AD321E0ECB5008F0F86 /* FSPagerView.framework */,
 				4121017221E0C94E00D3F7E3 /* AARatingBar.framework */,
 				4121017021E0020A00D3F7E3 /* PageMenu.framework */,
 				F44BF76A6B5EA0C369FEF072 /* Pods_MovieDemo.framework */,
@@ -97,9 +117,11 @@
 			isa = PBXGroup;
 			children = (
 				4121017421E0D04100D3F7E3 /* Black_Panther_(film)_poster_005.jpg */,
+				4121014C21DFDF3A00D3F7E3 /* AppDelegate.swift */,
+				5EB85AD521E0ECC7008F0F86 /* Helper */,
+				5EB85ADD21E0ECE0008F0F86 /* View Models */,
 				4121016721DFFE6600D3F7E3 /* Models */,
 				4121015F21DFE17100D3F7E3 /* View Controllers */,
-				4121014C21DFDF3A00D3F7E3 /* AppDelegate.swift */,
 				4121015021DFDF3A00D3F7E3 /* Main.storyboard */,
 				4121015321DFDF4000D3F7E3 /* Assets.xcassets */,
 				4121015521DFDF4000D3F7E3 /* LaunchScreen.storyboard */,
@@ -119,6 +141,7 @@
 		4121015F21DFE17100D3F7E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5EB85AD821E0ECCF008F0F86 /* Home */,
 				4121015E21DFE16100D3F7E3 /* Search View Controller */,
 				4121016421DFFB5F00D3F7E3 /* Movie Listing View Conttroller */,
 			);
@@ -158,6 +181,34 @@
 				4121016C21DFFEF700D3F7E3 /* ComingSoonMoviesVC.swift */,
 			);
 			path = "Coming Soon VC";
+			sourceTree = "<group>";
+		};
+		5EB85AD521E0ECC7008F0F86 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5EB85AD621E0ECC7008F0F86 /* ExtensionManager.swift */,
+				5E85232921E1FBE1000F9E4E /* AppUtility.swift */,
+				5E85232D21E1FE02000F9E4E /* ApiManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		5EB85AD821E0ECCF008F0F86 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5EB85AD921E0ECCF008F0F86 /* HomeVC.swift */,
+				5EB85ADA21E0ECCF008F0F86 /* PagerCell.swift */,
+			);
+			name = Home;
+			path = "../../../../Desktop/Brainy Beam/MovieDemop/MovieDemop/Home";
+			sourceTree = "<group>";
+		};
+		5EB85ADD21E0ECE0008F0F86 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				5EB85ADE21E0ECE0008F0F86 /* HomeViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,18 +287,24 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MovieDemo/Pods-MovieDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDemo/Pods-MovieDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieDemo/Pods-MovieDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieDemo/Pods-MovieDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C33A3E785D65AF8846EBCBE1 /* [CP] Check Pods Manifest.lock */ = {
@@ -276,9 +333,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4121016F21DFFF0900D3F7E3 /* NowShowingMoviesVC.swift in Sources */,
+				5EB85ADF21E0ECE0008F0F86 /* HomeViewModel.swift in Sources */,
+				5EB85ADC21E0ECCF008F0F86 /* PagerCell.swift in Sources */,
+				5EB85AD721E0ECC7008F0F86 /* ExtensionManager.swift in Sources */,
 				4121016321DFF42400D3F7E3 /* Candy.swift in Sources */,
+				5EB85ADB21E0ECCF008F0F86 /* HomeVC.swift in Sources */,
 				4121014F21DFDF3A00D3F7E3 /* ViewController.swift in Sources */,
 				4121016621DFFB8C00D3F7E3 /* MovieListingVC.swift in Sources */,
+				5E85232E21E1FE02000F9E4E /* ApiManager.swift in Sources */,
+				5E85232A21E1FBE1000F9E4E /* AppUtility.swift in Sources */,
 				4121017721E0D22A00D3F7E3 /* MoviesCell.swift in Sources */,
 				4121014D21DFDF3A00D3F7E3 /* AppDelegate.swift in Sources */,
 				4121016D21DFFEF700D3F7E3 /* ComingSoonMoviesVC.swift in Sources */,
@@ -431,13 +494,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5ZRSM44LD;
 				INFOPLIST_FILE = MovieDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Brainybeam.MovieDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -450,13 +514,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5ZRSM44LD;
 				INFOPLIST_FILE = MovieDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Brainybeam.MovieDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
