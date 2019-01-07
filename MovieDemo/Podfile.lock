@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.8.0)
   - Cosmos (11.0.3)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - FSPagerView (0.7.2)
   - PageMenu (2.0.0)
   - SDWebImage (4.4.3):
@@ -11,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 11.0)
+  - FMDB
   - FSPagerView (~> 0.7.1)
   - PageMenu
   - SDWebImage
@@ -20,6 +24,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Cosmos
+    - FMDB
     - FSPagerView
     - PageMenu
     - SDWebImage
@@ -36,11 +41,12 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Cosmos: eb506859929f4add2d2aec822a27efb2f718a95d
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   FSPagerView: 7515f63c424da71623d299d4fbbfb3dd884642ff
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 50a4d86085c0493722a7018ce78d3da166f10069
+PODFILE CHECKSUM: cea939bd2e7c8ff26b881d38f4f07ffefff231bb
 
 COCOAPODS: 1.6.0.beta.2

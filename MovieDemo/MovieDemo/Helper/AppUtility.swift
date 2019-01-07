@@ -107,4 +107,9 @@ class AppUtility {
         return (isReachable && !needsConnection)
     }
     
+    static func currentMiliSecond()->Double
+    {
+        let milliseconds: Int64 = Int64(Date().timeIntervalSince1970 * 1000.0)
+        return Double(milliseconds)
+    }
 }

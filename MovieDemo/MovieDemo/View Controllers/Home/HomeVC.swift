@@ -50,7 +50,9 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         pagerView.bringSubview(toFront: btn_buyTickets)
         pagerView.bringSubview(toFront: lblPreSale)
         createNavigationBar()
-        
+        UIApplication.shared.statusBarStyle = .lightContent
+        setNeedsStatusBarAppearanceUpdate()
+        setNeedsStatusBarAppearanceUpdate()
         getHomeScreen()
         // Do any additional setup after loading the view.
     }
@@ -58,6 +60,9 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     // MARK:- Helping Methods
     func getHomeScreen()
@@ -88,13 +93,13 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
-        let btnSearch = UIBarButtonItem(image: UIImage(named: "Ic_Search"), style: .plain, target: self, action: #selector(self.btnSearchClicked)) // action:#selector(Class.MethodName) for swift 3
+        let btnSearch = UIBarButtonItem(image: UIImage(named: "Ic_Search"), style: .plain, target: self, action: #selector(self.btnSearchClicked))
         self.navigationItem.rightBarButtonItem  = btnSearch
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
     func btnSearchClicked()
     {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
         let nav = UINavigationController(rootViewController: vc)
         self.present(nav, animated: true, completion: nil)
     }
@@ -141,7 +146,10 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "PagerCell", at: index)
         cell.imageView?.contentMode = .scaleAspectFill
-        cell.imageView?.sd_setImage(with: URL(string: arrMovies[index].poster_path!), placeholderImage: #imageLiteral(resourceName: "ic_placeholder"))
+        
+        let urlString = arrMovies[index].poster_path!
+        let url = URL(string: urlString)
+        cell.imageView?.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "ic_placeholder"))
         self.pagerView.bringSubview(toFront: btn_buyTickets)
         
         return cell
