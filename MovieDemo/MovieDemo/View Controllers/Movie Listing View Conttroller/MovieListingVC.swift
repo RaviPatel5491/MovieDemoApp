@@ -18,15 +18,11 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationController?.isNavigationBarHidden = true
-        
-        //self.navigationController?.navigationBar.barStyle = UIBarStyle.default
+        // NavigationBar Proporties
         self.navigationController?.navigationBar.barTintColor  = UIColor.white
         self.navigationController?.navigationBar.tintColor  = UIColor.black
         
         setupPageMenu()
-
-        // Do any additional setup after loading the view.
     }
     
     func setupPageMenu()
@@ -34,11 +30,6 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         // Array to keep track of controllers in page menu
         var controllerArray : [UIViewController] = []
         
-        // Create variables for all view controllers you want to put in the
-        // page menu, initialize them, and add each to the controller array.
-        // (Can be any UIViewController subclass)
-        // Make sure the title property of all view controllers is set
-        // Example:
         
         let objNowShowingMoviesVC = self.storyboard?.instantiateViewController(withIdentifier: "NowShowingMoviesVC") as! NowShowingMoviesVC
         objNowShowingMoviesVC.title = "Now Showing"
@@ -48,8 +39,7 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         objComingSoonMoviesVC.title = "Coming Soon"
         controllerArray.append(objComingSoonMoviesVC)
         
-        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-        // Example:
+        // Customize page menu customization
         
         let menuParam: [CAPSPageMenuOption] = [
             .menuItemSeparatorWidth(1.0),
@@ -69,22 +59,8 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         // Initialize page menu with controller array, frame, and optional parameters
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x:0.0, y:topMargin, width:self.view.frame.width, height:self.view.frame.height - topMargin), pageMenuOptions: menuParam)
         
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
-        
         pageMenu!.delegate = self
         
         self.view.addSubview(pageMenu!.view)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

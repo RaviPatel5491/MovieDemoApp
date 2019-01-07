@@ -39,11 +39,6 @@ class SearchVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
     // MARK: - Helping Methods
     
-   
-//    func delay(_ delay: Double, closure: @escaping ()->()) {
-//        let when = DispatchTime.now() + delay
-//        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
-//    }
     func getLastSearch()
     {
         arrSearchKeyWords =  searchVM.getLastSearchWords()
@@ -96,7 +91,7 @@ class SearchVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
    
     
-    // MARK: - Table View
+    // MARK: - Table View Delegate Methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
