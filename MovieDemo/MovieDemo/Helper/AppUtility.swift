@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import SystemConfiguration
+
 class AppUtility {
 
    public static func showProgress(text:String)
@@ -19,6 +21,90 @@ class AppUtility {
             SVProgressHUD.setForegroundColor(colorAccent)
         })
     }
+    public static func hideProgress()
+    {
+        DispatchQueue.main.async(execute: {() -> Void in
+            SVProgressHUD.dismiss()
+        })
+    }
+    static func dictionaryToJson(dict: NSMutableDictionary) -> String {
+        
+        let jsonData: NSData;
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions()) as NSData;
+            let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String;
+            return jsonString;
+        } catch _ {
+            print("Error converting NSMutableDictionary to JSON string in DataUtils.");
+        }
+        return "";
+    }
     
+    static func alertWithTitle(_ Title: String, Message: String, Cancelbtn: String, otherbutton: String)
+    {
+        DispatchQueue.main.async(execute: {() -> Void in
+            let alertController = UIAlertController(title: Title, message:Message, preferredStyle: .alert)
+            
+            
+            let cancelAction = UIAlertAction(title: Cancelbtn, style: .default)
+            let otherAction = UIAlertAction(title: otherbutton, style: .default)
+            
+            alertController.addAction(cancelAction)
+            if otherbutton != ""
+            {
+                alertController.addAction(otherAction)
+            }
+            
+            
+            if var topController = UIApplication.shared.keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                
+                topController.present(alertController, animated: true, completion: nil)
+            }
+        })
+    }
+    
+    static func alertForInternet()
+    {
+        DispatchQueue.main.async(execute: {() -> Void in
+            let alertController = UIAlertController(title: "", message:"Please check your internet connection!", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Ok", style: .default, handler: { Void in
+                    exit(0)
+                })
+            
+            alertController.addAction(cancelAction)
+           
+            
+            if var topController = UIApplication.shared.keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                topController.present(alertController, animated: true, completion: nil)
+            }
+        })
+    }
+   static func CheckConnection() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+    }
     
 }

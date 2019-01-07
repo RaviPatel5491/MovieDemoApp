@@ -13,6 +13,8 @@ let colorPrimaryDark = UIColor(hexString: "#000016")
 let colorAccent = UIColor(hexString: "#384065")
 
 let HOMEURL = "https://easy-mock.com/mock/5c19c6ff64b4573fc81a61f3/movieapp/home"
+let SOMETHING_WENT_WRONG = "Something went wrong!"
+
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -125,4 +127,5 @@ extension UIColor {
             }
         }
     }
+
 

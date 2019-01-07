@@ -100,25 +100,15 @@ class ApiManager {
                     
                     let dict = responseObject as! NSDictionary
                     let mutableDict = dict.mutableCopy() as! NSMutableDictionary
-                    print(mutableDict)
+                    print(AppUtility.dictionaryToJson(dict: mutableDict))
                     if mutableDict.allKeys.count == 0
                     {
                         completionHandler(false,mutableDict)
                     }
-                    else if let val = mutableDict.value(forKey: "Responce_code")
+                    else
                     {
-                        let resultCount = val as! String
-                        
-                        if resultCount == "200"
-                        {
-                            completionHandler(true,mutableDict)
-                        }
-                        else
-                        {
-                            completionHandler(false,mutableDict)
-                        }
+                        completionHandler(true,mutableDict)
                     }
-                    
                 }
         }
     }

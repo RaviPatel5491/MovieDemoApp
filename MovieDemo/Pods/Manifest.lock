@@ -3,6 +3,9 @@ PODS:
   - Cosmos (11.0.3)
   - FSPagerView (0.7.2)
   - PageMenu (2.0.0)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -10,6 +13,7 @@ DEPENDENCIES:
   - Cosmos (~> 11.0)
   - FSPagerView (~> 0.7.1)
   - PageMenu
+  - SDWebImage
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
 
 SPEC REPOS:
@@ -18,6 +22,7 @@ SPEC REPOS:
     - Cosmos
     - FSPagerView
     - PageMenu
+    - SDWebImage
 
 EXTERNAL SOURCES:
   SVProgressHUD:
@@ -33,8 +38,9 @@ SPEC CHECKSUMS:
   Cosmos: eb506859929f4add2d2aec822a27efb2f718a95d
   FSPagerView: 7515f63c424da71623d299d4fbbfb3dd884642ff
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: a1ff85218426110d3278b3c25ff3768259b8274c
+PODFILE CHECKSUM: 50a4d86085c0493722a7018ce78d3da166f10069
 
 COCOAPODS: 1.6.0.beta.2

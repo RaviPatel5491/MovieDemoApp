@@ -10,18 +10,28 @@ import UIKit
 
 struct HomeViewModel {
 
-    public static func fetchHomeData()
+    public func fetchHomeData(completionHandler: @escaping (Bool,[Movies]) -> ())
     {
+        //show progress
         AppUtility.showProgress(text: "Please Wait...")
-        ApiManager.shared.get(dict: NSMutableDictionary(), url: HOMEURL, completionHandler: { success , response in
-            if success
-            {
-               print(response)
-            }
-            else
-            {
+        if AppUtility.CheckConnection()
+        {
+            ApiManager.shared.get(dict: NSMutableDictionary(), url: HOMEURL, completionHandler: { success , response in
                 
-            }
-        })
+                //hide progress
+                AppUtility.hideProgress()
+                
+                // parsign to get movie list
+                let array = response["results"]
+                let arrMovieDict = Movies.modelsFromDictionaryArray(array: array as! NSArray)
+                completionHandler(success,arrMovieDict)
+            })
+        }
+        else
+        {
+            //hide progress
+            AppUtility.hideProgress()
+            AppUtility.alertForInternet()
+        }
     }
 }
