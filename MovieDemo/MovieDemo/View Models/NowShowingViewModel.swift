@@ -25,7 +25,7 @@ struct NowShowingViewModel
         //show progress
         if page == "0"
         {
-            AppUtility.showProgress(text: "Please Wait...")
+            AppUtility.showProgress(text: PROGRESS_GETTINGMOVIES)
         }
         if AppUtility.CheckConnection()
         {
@@ -36,8 +36,8 @@ struct NowShowingViewModel
                 AppUtility.hideProgress()
                 
                 // parsign to get movie list
-                let dict = response["results"] as! NSDictionary
-                let array = dict["showing"]
+                let dict = response[RESPONSE_RESULT] as! NSDictionary
+                let array = dict[CATEGORY_SHOWING]
                 let arrObjMovies = Movies.modelsFromDictionaryArray(array: array as! NSArray)
                 self.arrMovies.value.append(contentsOf: arrObjMovies)
             })

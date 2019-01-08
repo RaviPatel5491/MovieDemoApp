@@ -48,8 +48,8 @@ public class Genre_ids {
 */
 	required public init?(dictionary: NSDictionary) {
 
-		id = dictionary["id"] as? String
-		name = dictionary["name"] as? String
+		id = dictionary[GENRE_IDS_ID] as? String
+		name = dictionary[GENRE_IDS_NAME] as? String
 	}
 
 		
@@ -62,8 +62,8 @@ public class Genre_ids {
 
 		let dictionary = NSMutableDictionary()
 
-		dictionary.setValue(self.id, forKey: "id")
-		dictionary.setValue(self.name, forKey: "name")
+		dictionary.setValue(self.id, forKey: GENRE_IDS_ID)
+		dictionary.setValue(self.name, forKey: GENRE_IDS_NAME)
 
 		return dictionary
 	}

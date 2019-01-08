@@ -58,19 +58,19 @@ public class Movies {
 */
 	required public init?(dictionary: NSDictionary) {
 
-		poster_path = dictionary["poster_path"] as? String
-		rate = dictionary["rate"] as? Double
-		id = dictionary["id"] as? String
-		release_date = dictionary["release_date"] as? Int
-		title = dictionary["title"] as? String
-		presale_flag = dictionary["presale_flag"] as? Int
-		age_category = dictionary["age_category"] as? String
+		poster_path = dictionary[MOVIE_POSTER_PATH] as? String
+		rate = dictionary[MOVIE_RATE] as? Double
+		id = dictionary[MOVIE_ID] as? String
+		release_date = dictionary[MOVIE_RELEASE_DATE] as? Int
+		title = dictionary[MOVIE_TITLE] as? String
+		presale_flag = dictionary[MOVIE_PRESALE_FLAG] as? Int
+		age_category = dictionary[MOVIE_AGE_CATEGORY] as? String
         
-        if let val = dictionary["description"] as? String
+        if let val = dictionary[MOVIE_DESCRIPTION] as? String
         {
             description = val
         }
-        if (dictionary["genre_ids"] != nil) { genre_ids = Genre_ids.modelsFromDictionaryArray(array: dictionary["genre_ids"] as! NSArray)
+        if (dictionary[MOVIE_GENRE_ID] != nil) { genre_ids = Genre_ids.modelsFromDictionaryArray(array: dictionary[MOVIE_GENRE_ID] as! NSArray)
             
             if (genre_ids?.count)! > 0
             {
@@ -100,18 +100,19 @@ public class Movies {
     
     - returns: NSDictionary.
 */
+    
 	public func dictionaryRepresentation() -> NSDictionary {
 
 		let dictionary = NSMutableDictionary()
 
-		dictionary.setValue(self.poster_path, forKey: "poster_path")
-		dictionary.setValue(self.rate, forKey: "rate")
-		dictionary.setValue(self.id, forKey: "id")
-		dictionary.setValue(self.release_date, forKey: "release_date")
-		dictionary.setValue(self.title, forKey: "title")
-		dictionary.setValue(self.presale_flag, forKey: "presale_flag")
-		dictionary.setValue(self.age_category, forKey: "age_category")
-        dictionary.setValue(self.description, forKey: "description")
+		dictionary.setValue(self.poster_path, forKey: MOVIE_POSTER_PATH)
+		dictionary.setValue(self.rate, forKey: MOVIE_RATE)
+		dictionary.setValue(self.id, forKey: MOVIE_ID)
+		dictionary.setValue(self.release_date, forKey: MOVIE_RELEASE_DATE)
+		dictionary.setValue(self.title, forKey: MOVIE_TITLE)
+		dictionary.setValue(self.presale_flag, forKey: MOVIE_PRESALE_FLAG)
+		dictionary.setValue(self.age_category, forKey: MOVIE_AGE_CATEGORY)
+        dictionary.setValue(self.description, forKey: MOVIE_DESCRIPTION)
 
 		return dictionary
 	}

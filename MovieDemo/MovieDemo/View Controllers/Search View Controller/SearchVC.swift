@@ -112,7 +112,7 @@ class SearchVC: UIViewController , UISearchControllerDelegate {
         
         //searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Movie"
+        searchController.searchBar.placeholder = SEARCH_PLACEHOLDER
         //navigationItem.searchController = searchController
         searchController.searchBar.showsCancelButton = true
     }
@@ -158,7 +158,7 @@ extension SearchVC: UISearchBarDelegate {
         let trimmedString = searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         if trimmedString.count == 0
         {
-            AppUtility.alertWithTitle("", Message: "Please enter search text", Cancelbtn: "Ok", otherbutton: "")
+            AppUtility.alertWithTitle("", Message: SEARCH_ALERT, Cancelbtn: "Ok", otherbutton: "")
             return
         }
     

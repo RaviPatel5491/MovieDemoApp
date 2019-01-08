@@ -49,9 +49,9 @@ public class Search {
     - returns: Search Instance.
 */
 	required public init?(dictionary: NSDictionary) {
-        rowId = dictionary["rowid"] as? Int
-		text = dictionary["Text"] as? String
-		timestamp = dictionary["Timestamp"] as? Double
+        rowId = dictionary[T_SEARCH_ID] as? Int
+		text = dictionary[T_SEARCH_TEXT] as? String
+		timestamp = dictionary[T_SEARCH_TS] as? Double
 	}
 
 		
@@ -64,17 +64,17 @@ public class Search {
 
 		let dictionary = NSMutableDictionary()
 
-		dictionary.setValue(self.text, forKey: "Text")
-		dictionary.setValue(self.timestamp, forKey: "Timestamp")
-        dictionary.setValue(self.rowId, forKey: "rowid")
+		dictionary.setValue(self.text, forKey: T_SEARCH_TEXT)
+		dictionary.setValue(self.timestamp, forKey: T_SEARCH_TS)
+        dictionary.setValue(self.rowId, forKey: T_SEARCH_ID)
 		return dictionary
 	}
     public func dictionaryRepresentationTable() -> NSDictionary {
         
         let dictionary = NSMutableDictionary()
         
-        dictionary.setValue(self.text, forKey: "Text")
-        dictionary.setValue(self.timestamp, forKey: "Timestamp")
+        dictionary.setValue(self.text, forKey: T_SEARCH_TEXT)
+        dictionary.setValue(self.timestamp, forKey: T_SEARCH_TS)
         return dictionary
     }
 

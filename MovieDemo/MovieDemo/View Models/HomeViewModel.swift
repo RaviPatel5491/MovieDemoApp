@@ -50,7 +50,7 @@ struct HomeViewModel {
     public func fetchHomeData(completionHandler: @escaping (Bool,[Movies]) -> ())
     {
         //show progress
-        AppUtility.showProgress(text: "Getting Movies...")
+        AppUtility.showProgress(text: PROGRESS_GETTINGMOVIES)
         if AppUtility.CheckConnection()
         {
             ApiManager.shared.get(dict: NSMutableDictionary(), url: HOMEURL, completionHandler: { success , response in
@@ -59,9 +59,8 @@ struct HomeViewModel {
                 AppUtility.hideProgress()
                 
                 // parsign to get movie list
-                let arrMovieDict = response["results"]
+                let arrMovieDict = response[RESPONSE_RESULT]
                 self.arrMovies.value = Movies.modelsFromDictionaryArray(array: arrMovieDict as! NSArray)
-                
                 completionHandler(success,self.arrMovies.value)
             })
         }

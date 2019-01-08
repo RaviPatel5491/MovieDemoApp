@@ -31,7 +31,6 @@ class DatabaseManager {
         print(fileURL)
         if !database.open()
         {
-            print("Unable to open database")
             return
         }
         do {

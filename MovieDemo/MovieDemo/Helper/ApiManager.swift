@@ -50,7 +50,7 @@ class ApiManager {
                     {
                         completionHandler(false,mutableDict)
                     }
-                    else if let val = mutableDict.value(forKey: "Responce_code")
+                    else if let val = mutableDict.value(forKey: RESPONCE_CODE)
                     {
                         let resultCount = val as! String
                         

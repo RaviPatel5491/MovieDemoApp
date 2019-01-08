@@ -24,7 +24,7 @@ extension Date
     }
     mutating func getReleasDate()->String
     {
-        return formatType(form: "dd MMM yyyy").string(from: self as Date)
+        return formatType(form: DATE_FORMAT).string(from: self as Date)
     }
     
 }

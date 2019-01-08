@@ -53,12 +53,12 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         // Example:
         
         let objNowShowingMoviesVC = self.storyboard?.instantiateViewController(withIdentifier: "NowShowingMoviesVC") as! NowShowingMoviesVC
-        objNowShowingMoviesVC.title = "Now Showing"
+        objNowShowingMoviesVC.title = NOW_SHOWING
         objNowShowingMoviesVC.keyword = self.keyword
         controllerArray.append(objNowShowingMoviesVC)
         
         let objComingSoonMoviesVC = self.storyboard?.instantiateViewController(withIdentifier: "ComingSoonMoviesVC") as! ComingSoonMoviesVC
-        objComingSoonMoviesVC.title = "Coming Soon"
+        objComingSoonMoviesVC.title = Coming_SOON
         objComingSoonMoviesVC.keyword = self.keyword
         controllerArray.append(objComingSoonMoviesVC)
         

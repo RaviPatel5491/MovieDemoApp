@@ -76,7 +76,7 @@ class AppUtility {
     static func alertForInternet()
     {
         DispatchQueue.main.async(execute: {() -> Void in
-            let alertController = UIAlertController(title: "", message:"Please check your internet connection!", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "", message:INTERNET_FAILURE_MESSAGE, preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "Ok", style: .default, handler: { Void in
                     exit(0)
