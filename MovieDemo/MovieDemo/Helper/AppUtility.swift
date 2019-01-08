@@ -12,7 +12,7 @@ import SystemConfiguration
 
 class AppUtility {
 
-    // This method show progresss bar
+    // This method show progress bar
    public static func showProgress(text:String)
     {
         DispatchQueue.main.async(execute: {() -> Void in
@@ -23,13 +23,15 @@ class AppUtility {
         })
     }
     
-    // hide progress
+    // Hide progress bar
     public static func hideProgress()
     {
         DispatchQueue.main.async(execute: {() -> Void in
             SVProgressHUD.dismiss()
         })
     }
+    
+    // DIctionary to JSON Formattor
     static func dictionaryToJson(dict: NSMutableDictionary) -> String {
         
         let jsonData: NSData;
@@ -43,6 +45,7 @@ class AppUtility {
         return "";
     }
     
+    // DIsplay alert with Text Method
     static func alertWithTitle(_ Title: String, Message: String, Cancelbtn: String, otherbutton: String)
     {
         DispatchQueue.main.async(execute: {() -> Void in
@@ -69,6 +72,7 @@ class AppUtility {
         })
     }
     
+    // Alert For Internet connectivity Status
     static func alertForInternet()
     {
         DispatchQueue.main.async(execute: {() -> Void in
@@ -93,6 +97,8 @@ class AppUtility {
     {
         return SEARCH_URL + "keyword=\(keyword)&offset=\(Page)"
     }
+    
+    // This function checks Internet connection status
    static func CheckConnection() -> Bool
     {
         var zeroAddress = sockaddr_in()
@@ -114,6 +120,7 @@ class AppUtility {
         return (isReachable && !needsConnection)
     }
     
+    // Get miliseconds from Date
     static func currentMiliSecond()->Double
     {
         let milliseconds: Int64 = Int64(Date().timeIntervalSince1970 * 1000.0)

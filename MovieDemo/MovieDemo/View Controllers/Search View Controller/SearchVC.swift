@@ -6,6 +6,9 @@
 //  Copyright © 2019 Brainybeam. All rights reserved.
 //
 
+// This Class contains UI implementation and Data representation in Search ViewController
+
+
 import UIKit
 import RxSwift
 import RxCocoa
@@ -53,9 +56,12 @@ class SearchVC: UIViewController , UISearchControllerDelegate {
         self.searchController.searchBar.inputAccessoryView = keyboardToolbar
     }
     
+    // Dismiss Keyboard on OK clicked from Keyboard
     @objc func dismissKeyboard() {
         searchController.searchBar.resignFirstResponder()
     }
+    
+    // Get Last searched Text
     func getLastSearch()
     {
         //bind tableview

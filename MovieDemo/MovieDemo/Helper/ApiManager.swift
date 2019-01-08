@@ -11,6 +11,7 @@ import Alamofire
 class ApiManager {
     static let shared = ApiManager()
     
+    // Post Data to Server API call
     func post(dict:NSMutableDictionary,url:String , completionHandler: @escaping (Bool,NSMutableDictionary) -> ())
     {
         
@@ -67,6 +68,8 @@ class ApiManager {
         }
     }
     
+    // Get Data to Server API call
+
     func get(dict:NSMutableDictionary,url:String , completionHandler: @escaping (Bool,NSMutableDictionary) -> ())
     {
         
@@ -88,7 +91,7 @@ class ApiManager {
                 case .failure(let error):
                     print(error)
                     
-                    if let data = response.data, let responseString = String(data: data, encoding: .utf8)
+                    if let data = response.data, let _ = String(data: data, encoding: .utf8)
                     {
 //                        print(responseString)
                         

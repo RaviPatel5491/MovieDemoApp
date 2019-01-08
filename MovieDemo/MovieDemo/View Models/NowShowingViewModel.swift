@@ -18,6 +18,8 @@ struct NowShowingViewModel
         // Load local data
         loadNowShowing(page: "0")
     }
+    
+    // Load Movie Data of Now showing Category
     public func loadNowShowing(page:String)
     {
         //show progress

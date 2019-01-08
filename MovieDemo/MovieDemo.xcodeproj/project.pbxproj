@@ -11,7 +11,6 @@
 		4121015221DFDF3A00D3F7E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4121015021DFDF3A00D3F7E3 /* Main.storyboard */; };
 		4121015421DFDF4000D3F7E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4121015321DFDF4000D3F7E3 /* Assets.xcassets */; };
 		4121015721DFDF4000D3F7E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4121015521DFDF4000D3F7E3 /* LaunchScreen.storyboard */; };
-		4121016321DFF42400D3F7E3 /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121016221DFF42300D3F7E3 /* Candy.swift */; };
 		4121016621DFFB8C00D3F7E3 /* MovieListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121016521DFFB8C00D3F7E3 /* MovieListingVC.swift */; };
 		4121016D21DFFEF700D3F7E3 /* ComingSoonMoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121016C21DFFEF700D3F7E3 /* ComingSoonMoviesVC.swift */; };
 		4121016F21DFFF0900D3F7E3 /* NowShowingMoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121016E21DFFF0900D3F7E3 /* NowShowingMoviesVC.swift */; };
@@ -47,7 +46,6 @@
 		4121015321DFDF4000D3F7E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4121015621DFDF4000D3F7E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4121015821DFDF4000D3F7E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4121016221DFF42300D3F7E3 /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candy.swift; sourceTree = "<group>"; };
 		4121016521DFFB8C00D3F7E3 /* MovieListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListingVC.swift; sourceTree = "<group>"; };
 		4121016C21DFFEF700D3F7E3 /* ComingSoonMoviesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonMoviesVC.swift; sourceTree = "<group>"; };
 		4121016E21DFFF0900D3F7E3 /* NowShowingMoviesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowShowingMoviesVC.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				5EF5A0F821E3907300048BD4 /* Search.swift */,
-				4121016221DFF42300D3F7E3 /* Candy.swift */,
 				5EF5A0EE21E36F3100048BD4 /* Genre_ids.swift */,
 				5EF5A0EF21E36F3200048BD4 /* Movies.swift */,
 			);
@@ -379,7 +376,6 @@
 				5EF5A0ED21E35E4300048BD4 /* PagerCell.swift in Sources */,
 				5EF5A0FD21E399BF00048BD4 /* SearchViewModel.swift in Sources */,
 				5EF5A0F121E36F3200048BD4 /* Movies.swift in Sources */,
-				4121016321DFF42400D3F7E3 /* Candy.swift in Sources */,
 				5EF5A0F521E3868200048BD4 /* Constants.swift in Sources */,
 				5EF5A0FB21E3918900048BD4 /* SearchVC.swift in Sources */,
 				5EF869F821E45B64005FC3A0 /* ComingsoonViewModel.swift in Sources */,

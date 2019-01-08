@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brainybeam. All rights reserved.
 //
 
+// Custom TableView cell for Movie listing TableView
+
 import UIKit
 import Cosmos
 class MoviesCell: UITableViewCell {

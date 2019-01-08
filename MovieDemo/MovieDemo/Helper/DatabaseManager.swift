@@ -14,10 +14,12 @@ class DatabaseManager {
     static let shared = DatabaseManager()
     var database = FMDatabase()
 
-    //database init
+    //Initialize SQLite Database
     init() {
         createDB()
     }
+    
+    
     func createDB()
     {
         let fileURL = try! FileManager.default
@@ -38,6 +40,8 @@ class DatabaseManager {
             print("failed: \(error.localizedDescription)")
         }
     }
+    
+    // Generate Database Path
     func dbPath()->String
     {
         let fileURL = try! FileManager.default
@@ -55,13 +59,15 @@ class DatabaseManager {
         
         self.insertOrUpdateTable(objSearch.dictionaryRepresentationTable() as! NSMutableDictionary, condition: " Where \(T_SEARCH_TEXT) = '\(text)'", tableName: T_SEARCH as NSString)
     }
+    
+    // Delete entry from Database
     func deleteTextFromDB(rowId:Int)
     {
         deleteCondition(condition: " \(T_SEARCH_ID) = \(rowId)", tableName: T_SEARCH as NSString)
     }
     
     
-    ///  basic queries
+    //  Basic queries
     func deleteCondition(condition : String, tableName :NSString)
     {
         let objDatabase = FMDatabase(path: dbPath())
@@ -103,6 +109,7 @@ class DatabaseManager {
             }
         }
     }
+    
     func insertTable(_ dictionary : NSMutableDictionary , condition : String, tableName :NSString)
     {
         
@@ -155,6 +162,7 @@ class DatabaseManager {
             objDatabase.close()
         }
     }
+    
     func getTableData(_ Table : NSString,condition : NSString) -> NSMutableArray
     {
         let objDatabase = FMDatabase(path: dbPath())
@@ -185,13 +193,12 @@ class DatabaseManager {
             } catch let error as NSError
             {
                 
-                print("failed in gettable \(Table): \(error.localizedFailureReason)")
+                print("failed in gettable \(Table): \(String(describing: error.localizedFailureReason))")
             }
-            //            objDatabase?.commit()
         }
-        
         return ArrayToReturn
     }
+    
     func updateTable(_ dictionary : NSMutableDictionary , condition : String, tableName :NSString)
     {
         let objDatabase = FMDatabase(path: dbPath())
@@ -215,16 +222,13 @@ class DatabaseManager {
                 }
                 
                 strquery = strquery + " WHERE "+condition
-                
-                // print(strquery)
-                
+                            
                 try objDatabase.executeUpdate(strquery,values:[NSNull()])
                 
             } catch
             {
                 print("error = \(error)")
                 print("failed in update \(strquery): \(error.localizedDescription)")
-                
             }
             objDatabase.close()
         }

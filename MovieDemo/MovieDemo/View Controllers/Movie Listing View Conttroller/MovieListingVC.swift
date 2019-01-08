@@ -6,6 +6,9 @@
 //  Copyright © 2019 Brainybeam. All rights reserved.
 //
 
+// This Base Class is container for Now showing and Coming soon ViewController
+
+
 import UIKit
 import PageMenu
 
@@ -25,6 +28,7 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         // Do any additional setup after loading the view.
     }
     
+    // Set navigationBar proporties
     func createNavigation()
     {
         self.title = "Movies"
@@ -35,6 +39,8 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         self.navigationController?.navigationBar.tintColor = UIColor.white
 //        self.navigationController?.navigationBar.layoutIfNeeded()
     }
+    
+    // Setup UpperTab Menu Proporties
     func setupPageMenu()
     {
         // Array to keep track of controllers in page menu
@@ -83,15 +89,5 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         
         self.view.addSubview(pageMenu!.view)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

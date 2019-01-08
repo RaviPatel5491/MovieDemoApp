@@ -6,11 +6,15 @@
 //  Copyright © 2019 BrainyBeam. All rights reserved.
 //
 
+
+// This Class contains UI implementation and Data representation in Home ViewController
+
 import UIKit
 import FSPagerView
 import SDWebImage
 import RxSwift
 import RxCocoa
+
 class buttonRound: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -19,6 +23,7 @@ class buttonRound: UIButton {
     }
 }
 class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
+    
     // MARK:- Declaration
     @IBOutlet weak var btn_buyTickets: UIButton!
     @IBOutlet weak var lblTitleMovie: UILabel!
@@ -28,6 +33,10 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     var arrMovies = [Movies]()
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
@@ -40,7 +49,6 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
             
             self.pagerView.itemSize = CGSize(width: 250, height: 350)
             pagerView.reloadData()
-            
         }
     }
     
@@ -52,7 +60,7 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         pagerView.bringSubview(toFront: btn_buyTickets)
         pagerView.bringSubview(toFront: lblPreSale)
         createNavigationBar()
-        UIApplication.shared.statusBarStyle = .lightContent
+        //UIApplication.shared.statusBarStyle = .lightContent
       
         getHomeScreen()
         // Do any additional setup after loading the view.
@@ -62,9 +70,7 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+    
     // MARK:- Helping Methods
     func getHomeScreen()
     {
@@ -84,6 +90,8 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
             }
         }
     }
+    
+    // Load Movie List Pager
     func loadPager()
     {
         self.view.isHidden = false
@@ -91,6 +99,8 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         self.pagerView.reloadData()
         self.showPageComonents()
     }
+    
+    // Set navigationbar proporties
     func createNavigationBar()
     {
         self.title = "Movie"
@@ -105,6 +115,8 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         self.navigationItem.rightBarButtonItem  = btnSearch
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
+    
+    // Search Button click Action
     func btnSearchClicked()
     {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
@@ -134,7 +146,8 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         lblGenre.fadeOut()
         lblPreSale.fadeOut()
     }
-    // MARK:- FSPagerViewDelegate
+    
+    // MARK:- FSPagerViewDelegate Functions
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
         let isPageScrolled = floor(pagerView.scrollOffset) == pagerView.scrollOffset // true
@@ -168,8 +181,4 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     {
         
     }
-    
-    
-    
-    
 }

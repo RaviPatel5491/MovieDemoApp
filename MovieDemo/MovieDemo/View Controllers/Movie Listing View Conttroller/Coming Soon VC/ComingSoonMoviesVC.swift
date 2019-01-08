@@ -6,12 +6,15 @@
 //  Copyright © 2019 Brainybeam. All rights reserved.
 //
 
+// This Class contains UI implementation and Data representation in Coming Soon ViewController
+
+
 import UIKit
 import RxSwift
 import RxCocoa
 class ComingSoonMoviesVC: UIViewController {
     
-    // MARK: - iPhone Life Cycle
+    
     
     @IBOutlet weak var tblMovies: UITableView!
     var pageNo = 0
@@ -20,23 +23,26 @@ class ComingSoonMoviesVC: UIViewController {
 
     var comingsoonVM = ComingsoonViewModel()
     var arrMovies = [Movies]()
+    
+    // MARK: - iPhone Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tblMovies.contentInset = UIEdgeInsets.zero
         getComingSoon()
-        // Do any additional setup after loading the view.
     }
+    
     override func viewWillAppear(_ animated: Bool) {
     }
     // MARK: - Helping Mehods
     
+    // Get coming soon movies data
     func getComingSoon()
     {
         comingsoonVM.arrMovies.asObservable().bind(to: tblMovies.rx.items(cellIdentifier: "MoviesCell"))(setupCell)
             .addDisposableTo(disposeBag)
     }
     
-    // MARK: - TableView Methods
+    // MARK: - TableView
 
     private func setupCell(row: Int,objMovie:Movies, cell: UITableViewCell){
         
@@ -44,8 +50,6 @@ class ComingSoonMoviesVC: UIViewController {
         objMoviesCell.selectionStyle = .none
         
         objMoviesCell.lblMovieName.text = objMovie.title
-        
-        // url
         
         let urlString = objMovie.poster_path!
         let url = URL(string: urlString)
@@ -75,15 +79,4 @@ class ComingSoonMoviesVC: UIViewController {
         }
         
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

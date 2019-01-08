@@ -9,21 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-//class Dynamic<T> {
-//
-//    var bind :(T) -> () = { _ in }
-//
-//    var value :T? {
-//        didSet {
-//            bind(value!)
-//        }
-//    }
-//
-//    init(_ v :T) {
-//        value = v
-//    }
-//
-//}
+
 struct HomeViewModel {
     
     var arrMovies = Variable<[Movies]>([])

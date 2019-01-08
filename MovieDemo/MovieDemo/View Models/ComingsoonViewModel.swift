@@ -19,6 +19,7 @@ struct ComingsoonViewModel {
     }
 
    
+    // Load movie Data of Coming Soon Category
     public func loadComingSoon(page:String)
     {
         //show progress
@@ -31,15 +32,11 @@ struct ComingsoonViewModel {
             let urlSearch = AppUtility.searhUrl(keyword: keyword.value, Page: page)
             ApiManager.shared.get(dict: NSMutableDictionary(), url: urlSearch, completionHandler: { success , response in
                 
-                //hide progress
-//                AppUtility.hideProgress()
-                
                 // parsign to get movie list
                 let dict = response["results"] as! NSDictionary
                 let array = dict["upcoming"]
                 let arrObjMovies = Movies.modelsFromDictionaryArray(array: array as! NSArray)
                 self.arrMovies.value.append(contentsOf: arrObjMovies)
-//                completionHandler(success,arrMovieDict)
             })
         }
         else

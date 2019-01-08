@@ -8,7 +8,7 @@
 
 import UIKit
 
-// date extension to get release date of movie
+// Date extension to get release date of movie
 extension Date
 {
     init(milliseconds:Int) {
@@ -28,7 +28,7 @@ extension Date
     }
     
 }
-// hex to color extension
+// HEX to UIColor extension
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -49,7 +49,7 @@ extension UIColor {
     }
 }
 
-    // extension for view animation and view customisation
+    // Extension for view animation and view customisation
     extension UIView {
         func fadeTo(_ alpha: CGFloat, duration: TimeInterval? = 0.3) {
             DispatchQueue.main.async {
@@ -110,8 +110,6 @@ extension UIColor {
             }
             
             set {
-                // Make sure that it's between 0.0 and 1.0. If not, restrict it
-                // to that range.
                 let normalizedRatio = max(0.0, min(1.0, newValue))
                 layer.cornerRadius = frame.width * normalizedRatio
             }

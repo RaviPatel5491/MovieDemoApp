@@ -6,13 +6,16 @@
 //  Copyright © 2019 Brainybeam. All rights reserved.
 //
 
+// This Class contains UI implementation and Data representation in Now Showing ViewController
+
+
 import UIKit
 import RxSwift
 import RxCocoa
 
 class NowShowingMoviesVC: UIViewController {
     
-    // MARK: - iPhone Life Cycle
+    
 
     @IBOutlet weak var tblMovies: UITableView!
     var pageNo = 0
@@ -22,6 +25,9 @@ class NowShowingMoviesVC: UIViewController {
     var disposeBag = DisposeBag()
 
     var arrMovies = [Movies]()
+    
+    // MARK: - iPhone Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tblMovies.contentInset = UIEdgeInsets.zero
@@ -76,17 +82,5 @@ class NowShowingMoviesVC: UIViewController {
         }
         
     }
-   
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
