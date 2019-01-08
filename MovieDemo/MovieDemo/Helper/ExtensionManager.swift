@@ -8,26 +8,7 @@
 
 import UIKit
 
-extension UITableView {
-    
-    func scrollToBottom(){
-        
-        DispatchQueue.main.async {
-            let indexPath = IndexPath(
-                row: self.numberOfRows(inSection:  self.numberOfSections - 1) - 1,
-                section: self.numberOfSections - 1)
-            self.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        }
-    }
-    
-    func scrollToTop() {
-        
-        DispatchQueue.main.async {
-            let indexPath = IndexPath(row: 0, section: 0)
-            self.scrollToRow(at: indexPath, at: .top, animated: false)
-        }
-    }
-}
+// date extension to get release date of movie
 extension Date
 {
     init(milliseconds:Int) {
@@ -47,6 +28,7 @@ extension Date
     }
     
 }
+// hex to color extension
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -66,32 +48,8 @@ extension UIColor {
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 }
-    extension UIImageView
-    {
-        func roundCornersForAspectFit(radius: CGFloat)
-        {
-            if let image = self.image {
-                
-                //calculate drawingRect
-                let boundsScale = self.bounds.size.width / self.bounds.size.height
-                let imageScale = image.size.width / image.size.height
-                
-                var drawingRect: CGRect = self.bounds
-                
-                if boundsScale > imageScale {
-                    drawingRect.size.width =  drawingRect.size.height * imageScale
-                    drawingRect.origin.x = (self.bounds.size.width - drawingRect.size.width) / 2
-                } else {
-                    drawingRect.size.height = drawingRect.size.width / imageScale
-                    drawingRect.origin.y = (self.bounds.size.height - drawingRect.size.height) / 2
-                }
-                let path = UIBezierPath(roundedRect: drawingRect, cornerRadius: radius)
-                let mask = CAShapeLayer()
-                mask.path = path.cgPath
-                self.layer.mask = mask
-            }
-        }
-    }
+
+    // extension for view animation and view customisation
     extension UIView {
         func fadeTo(_ alpha: CGFloat, duration: TimeInterval? = 0.3) {
             DispatchQueue.main.async {

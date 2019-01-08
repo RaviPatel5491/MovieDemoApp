@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieDemo/Helper/DatabaseManager.swift"
-            timestampString = "568571989.9737099"
+            timestampString = "568659779.297333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -25,46 +25,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovieDemo/View Models/NowShowingViewModel.swift"
-            timestampString = "568617473.234479"
+            filePath = "MovieDemo/View Models/ComingsoonViewModel.swift"
+            timestampString = "568662011.1480809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "loadNowShowing(page:completionHandler:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "loadComingSoon(page:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MovieDemo.NowShowingViewModel.loadNowShowing(page: Swift.String, completionHandler: (Swift.Bool, Swift.Array&lt;MovieDemo.Movies&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "MovieDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ravipatel/Desktop/Brainy%20Beam/Movie%20Demo%20App/MovieDemoApp/MovieDemo/MovieDemo/View%20Models/NowShowingViewModel.swift"
-                  timestampString = "568615395.958482"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "324">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool, __ObjC.NSMutableDictionary) -&gt; () in MovieDemo.NowShowingViewModel.loadNowShowing(page: Swift.String, completionHandler: (Swift.Bool, Swift.Array&lt;MovieDemo.Movies&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "MovieDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ravipatel/Desktop/Brainy%20Beam/Movie%20Demo%20App/MovieDemoApp/MovieDemo/MovieDemo/View%20Models/NowShowingViewModel.swift"
-                  timestampString = "568615395.960148"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -73,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovieDemo/View Models/NowShowingViewModel.swift"
-            timestampString = "568617473.234543"
+            filePath = "MovieDemo/View Controllers/Search View Controller/SearchVC.swift"
+            timestampString = "568662011.148412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "loadNowShowing(page:completionHandler:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "dismissKeyboard()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

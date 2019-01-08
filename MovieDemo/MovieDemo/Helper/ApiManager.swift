@@ -90,7 +90,7 @@ class ApiManager {
                     
                     if let data = response.data, let responseString = String(data: data, encoding: .utf8)
                     {
-                        print(responseString)
+//                        print(responseString)
                         
                         let dictnil = NSMutableDictionary()
                         completionHandler(false,dictnil)

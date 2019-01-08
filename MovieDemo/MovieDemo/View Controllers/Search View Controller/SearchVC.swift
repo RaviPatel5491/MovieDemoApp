@@ -40,15 +40,29 @@ class SearchVC: UIViewController , UISearchControllerDelegate {
         self.setupTable()
         self.bindSearchBar()
         self.SetupSearchController()
+        self.setDoneOnKeyboard()
         
     }
     // MARK: - Helping Methods
+    func setDoneOnKeyboard() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissKeyboard))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        self.searchController.searchBar.inputAccessoryView = keyboardToolbar
+    }
+    
+    @objc func dismissKeyboard() {
+        searchController.searchBar.resignFirstResponder()
+    }
     func getLastSearch()
     {
         //bind tableview
         searchVM.arrSearch.asObservable().bind(to: tableView.rx.items(cellIdentifier: "Cell"))(setupCell)
             .addDisposableTo(disposeBag)
     }
+    
     private func bindSearchBar() {
         searchController.searchBar.rx.text.asObservable()
             .filter{$0 != nil}
@@ -57,7 +71,7 @@ class SearchVC: UIViewController , UISearchControllerDelegate {
                 self.searchVM.searchText.value = text!
             }).disposed(by: disposeBag)
     }
-    
+
     func SetupSearchController()
     {
         if #available(iOS 11.0, *) {
@@ -127,7 +141,7 @@ class SearchVC: UIViewController , UISearchControllerDelegate {
     }
     private func setupCell(row: Int,search:Search, cell: UITableViewCell){
         cell.textLabel?.text = search.text
-        cell.detailTextLabel?.text = search.text
+        cell.detailTextLabel?.text = ""
     }
 }
 
@@ -141,7 +155,11 @@ extension SearchVC: UISearchBarDelegate {
             AppUtility.alertWithTitle("", Message: "Please enter search text", Cancelbtn: "Ok", otherbutton: "")
             return
         }
+    
         searchVM.addKeyWordToDB(keyword: trimmedString)
+        searchVM.getLastSearchWords()
+        searchBar.text = ""
+        
         let objMovieListingVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieListingVC") as! MovieListingVC
         objMovieListingVC.keyword = trimmedString
         self.navigationController?.pushViewController(objMovieListingVC, animated: true)

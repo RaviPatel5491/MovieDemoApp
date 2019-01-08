@@ -4,7 +4,7 @@
 //
 //  Created by Jigar Patel on 06/01/19.
 //  Copyright © 2019 Brainybeam. All rights reserved.
-//
+// This class is used for util methods
 
 import UIKit
 import SVProgressHUD
@@ -12,6 +12,7 @@ import SystemConfiguration
 
 class AppUtility {
 
+    // This method show progresss bar
    public static func showProgress(text:String)
     {
         DispatchQueue.main.async(execute: {() -> Void in
@@ -21,6 +22,8 @@ class AppUtility {
             SVProgressHUD.setForegroundColor(colorAccent)
         })
     }
+    
+    // hide progress
     public static func hideProgress()
     {
         DispatchQueue.main.async(execute: {() -> Void in

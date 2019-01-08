@@ -16,7 +16,6 @@
 		4121016D21DFFEF700D3F7E3 /* ComingSoonMoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121016C21DFFEF700D3F7E3 /* ComingSoonMoviesVC.swift */; };
 		4121016F21DFFF0900D3F7E3 /* NowShowingMoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121016E21DFFF0900D3F7E3 /* NowShowingMoviesVC.swift */; };
 		4121017121E0020A00D3F7E3 /* PageMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4121017021E0020A00D3F7E3 /* PageMenu.framework */; };
-		4121017521E0D04200D3F7E3 /* Black_Panther_(film)_poster_005.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4121017421E0D04100D3F7E3 /* Black_Panther_(film)_poster_005.jpg */; };
 		4121017721E0D22A00D3F7E3 /* MoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121017621E0D22A00D3F7E3 /* MoviesCell.swift */; };
 		5E85232A21E1FBE1000F9E4E /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85232921E1FBE1000F9E4E /* AppUtility.swift */; };
 		5E85232C21E1FC01000F9E4E /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E85232B21E1FC01000F9E4E /* SVProgressHUD.framework */; };
@@ -54,7 +53,6 @@
 		4121016E21DFFF0900D3F7E3 /* NowShowingMoviesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowShowingMoviesVC.swift; sourceTree = "<group>"; };
 		4121017021E0020A00D3F7E3 /* PageMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PageMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4121017221E0C94E00D3F7E3 /* AARatingBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AARatingBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4121017421E0D04100D3F7E3 /* Black_Panther_(film)_poster_005.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Black_Panther_(film)_poster_005.jpg"; sourceTree = "<group>"; };
 		4121017621E0D22A00D3F7E3 /* MoviesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCell.swift; sourceTree = "<group>"; };
 		5CA04B029D9F243BC4B90E1B /* Pods-MovieDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieDemo/Pods-MovieDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5E85232921E1FBE1000F9E4E /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 		4121014B21DFDF3A00D3F7E3 /* MovieDemo */ = {
 			isa = PBXGroup;
 			children = (
-				4121017421E0D04100D3F7E3 /* Black_Panther_(film)_poster_005.jpg */,
 				4121014C21DFDF3A00D3F7E3 /* AppDelegate.swift */,
 				5EB85AD521E0ECC7008F0F86 /* Helper */,
 				5EB85ADD21E0ECE0008F0F86 /* View Models */,
@@ -306,7 +303,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4121017521E0D04200D3F7E3 /* Black_Panther_(film)_poster_005.jpg in Resources */,
 				4121015721DFDF4000D3F7E3 /* LaunchScreen.storyboard in Resources */,
 				4121015421DFDF4000D3F7E3 /* Assets.xcassets in Resources */,
 				4121015221DFDF3A00D3F7E3 /* Main.storyboard in Resources */,

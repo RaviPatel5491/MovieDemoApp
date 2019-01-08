@@ -7,12 +7,18 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 struct NowShowingViewModel
 {
-    var keyword : Dynamic<String> = Dynamic("")
-    var arrMovies : Dynamic<[Movies]> = Dynamic([Movies]())
-    public func loadNowShowing(page:String,completionHandler: @escaping (Bool,[Movies]) -> ())
+    var keyword : Variable<String> = Variable("")
+    var arrMovies : Variable<[Movies]> = Variable([Movies]())
+    
+    init() {
+        // Load local data
+        loadNowShowing(page: "0")
+    }
+    public func loadNowShowing(page:String)
     {
         //show progress
         if page == "0"
@@ -21,7 +27,7 @@ struct NowShowingViewModel
         }
         if AppUtility.CheckConnection()
         {
-            let urlSearch = AppUtility.searhUrl(keyword: keyword.value!, Page: page)
+            let urlSearch = AppUtility.searhUrl(keyword: keyword.value, Page: page)
             ApiManager.shared.get(dict: NSMutableDictionary(), url: urlSearch, completionHandler: { success , response in
                 
                 //hide progress
@@ -30,8 +36,8 @@ struct NowShowingViewModel
                 // parsign to get movie list
                 let dict = response["results"] as! NSDictionary
                 let array = dict["showing"]
-                let arrMovieDict = Movies.modelsFromDictionaryArray(array: array as! NSArray)
-                completionHandler(success,arrMovieDict)
+                let arrObjMovies = Movies.modelsFromDictionaryArray(array: array as! NSArray)
+                self.arrMovies.value.append(contentsOf: arrObjMovies)
             })
         }
         else

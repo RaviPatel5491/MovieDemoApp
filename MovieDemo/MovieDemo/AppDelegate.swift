@@ -22,13 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-
-
+        // set search bar and navigation bar properties
         UISearchBar.appearance().tintColor = .white
         UINavigationBar.appearance().tintColor = .white
-        
+        application.statusBarStyle = .lightContent 
+
+        // create database
         DatabaseManager.shared.createDB()
-        application.statusBarStyle = .lightContent // .default
+        
 
         return true
     }

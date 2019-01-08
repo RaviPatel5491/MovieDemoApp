@@ -9,7 +9,8 @@
 import UIKit
 import FSPagerView
 import SDWebImage
-
+import RxSwift
+import RxCocoa
 class buttonRound: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -25,11 +26,9 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     @IBOutlet weak var lblPreSale: UILabel!
     
     var arrMovies = [Movies]()
-    var homeVM = HomeViewModel() {
-        didSet {
-            homeVM.arrMovies.bind = { [unowned self] in self.arrMovies = $0 }
-        }
-    }
+    var homeVM = HomeViewModel()
+    var disposeBag = DisposeBag()
+
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             
@@ -54,8 +53,7 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         pagerView.bringSubview(toFront: lblPreSale)
         createNavigationBar()
         UIApplication.shared.statusBarStyle = .lightContent
-        setNeedsStatusBarAppearanceUpdate()
-        setNeedsStatusBarAppearanceUpdate()
+      
         getHomeScreen()
         // Do any additional setup after loading the view.
     }
@@ -71,6 +69,7 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     func getHomeScreen()
     {
         view.isHidden = true
+        
         homeVM.fetchHomeData{ success , arrMovies in
             if success
             {
@@ -85,12 +84,19 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
             }
         }
     }
+    func loadPager()
+    {
+        self.view.isHidden = false
+        self.arrMovies = homeVM.arrMovies.value
+        self.pagerView.reloadData()
+        self.showPageComonents()
+    }
     func createNavigationBar()
     {
         self.title = "Movie"
         self.navigationController?.isNavigationBarHidden = false
         
-        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = colorPrimary
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         self.navigationController?.navigationBar.tintColor = UIColor.white

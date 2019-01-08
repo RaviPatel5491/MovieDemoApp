@@ -18,17 +18,23 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = false
-        
-        //self.navigationController?.navigationBar.barStyle = UIBarStyle.default
-        self.navigationController?.navigationBar.barTintColor  = UIColor.white
-        self.navigationController?.navigationBar.tintColor  = UIColor.black
+       
         
         setupPageMenu()
-        
+        createNavigation()
         // Do any additional setup after loading the view.
     }
     
+    func createNavigation()
+    {
+        self.title = "Movies"
+        self.navigationController?.isNavigationBarHidden = false
+        
+        self.navigationController?.navigationBar.barTintColor = colorPrimary
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.layoutIfNeeded()
+    }
     func setupPageMenu()
     {
         // Array to keep track of controllers in page menu

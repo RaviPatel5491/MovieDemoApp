@@ -7,11 +7,19 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 struct ComingsoonViewModel {
-    var keyword : Dynamic<String> = Dynamic("")
-    var arrMovies : Dynamic<[Movies]> = Dynamic([Movies]())
-    public func loadComingSoon(page:String,completionHandler: @escaping (Bool,[Movies]) -> ())
+    let keyword = Variable("")
+    var arrMovies : Variable<[Movies]> = Variable([Movies]())
+    
+    init() {
+        // Load local data
+        loadComingSoon(page: "0")
+    }
+
+   
+    public func loadComingSoon(page:String)
     {
         //show progress
         if page == "0"
@@ -20,17 +28,18 @@ struct ComingsoonViewModel {
         }
         if AppUtility.CheckConnection()
         {
-            let urlSearch = AppUtility.searhUrl(keyword: keyword.value!, Page: page)
+            let urlSearch = AppUtility.searhUrl(keyword: keyword.value, Page: page)
             ApiManager.shared.get(dict: NSMutableDictionary(), url: urlSearch, completionHandler: { success , response in
                 
                 //hide progress
-                AppUtility.hideProgress()
+//                AppUtility.hideProgress()
                 
                 // parsign to get movie list
                 let dict = response["results"] as! NSDictionary
                 let array = dict["upcoming"]
-                let arrMovieDict = Movies.modelsFromDictionaryArray(array: array as! NSArray)
-                completionHandler(success,arrMovieDict)
+                let arrObjMovies = Movies.modelsFromDictionaryArray(array: array as! NSArray)
+                self.arrMovies.value.append(contentsOf: arrObjMovies)
+//                completionHandler(success,arrMovieDict)
             })
         }
         else
@@ -39,4 +48,5 @@ struct ComingsoonViewModel {
             AppUtility.hideProgress()
         }
     }
+//
 }
