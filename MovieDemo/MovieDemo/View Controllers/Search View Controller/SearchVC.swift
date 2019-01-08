@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class SearchVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate {
+class SearchVC: UIViewController , UISearchControllerDelegate {
     
     // MARK: - Properties
     @IBOutlet var tableView: UITableView!
     var arrSearchKeyWords = [Search]()
     let searchController = UISearchController(searchResultsController: nil)
-    let searchVM = SearchViewModel()
+    var searchVM = SearchViewModel()
+    var disposeBag = DisposeBag()
 
     // MARK: - iPhone life cycle
     
@@ -34,21 +37,27 @@ class SearchVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
         // Setup the Search Controller
         self.getLastSearch()
+        self.setupTable()
+        self.bindSearchBar()
         self.SetupSearchController()
         
     }
     // MARK: - Helping Methods
-    
-   
-//    func delay(_ delay: Double, closure: @escaping ()->()) {
-//        let when = DispatchTime.now() + delay
-//        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
-//    }
     func getLastSearch()
     {
-        arrSearchKeyWords =  searchVM.getLastSearchWords()
-        tableView.reloadData()
+        //bind tableview
+        searchVM.arrSearch.asObservable().bind(to: tableView.rx.items(cellIdentifier: "Cell"))(setupCell)
+            .addDisposableTo(disposeBag)
     }
+    private func bindSearchBar() {
+        searchController.searchBar.rx.text.asObservable()
+            .filter{$0 != nil}
+            .subscribe(onNext: {
+                text in
+                self.searchVM.searchText.value = text!
+            }).disposed(by: disposeBag)
+    }
+    
     func SetupSearchController()
     {
         if #available(iOS 11.0, *) {
@@ -97,48 +106,28 @@ class SearchVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
    
     
     // MARK: - Table View
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return arrSearchKeyWords.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let objSearch = arrSearchKeyWords[indexPath.row]
-        cell.textLabel!.text = objSearch.text
-        cell.detailTextLabel?.text = ""
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func setupTable()
+    {
+        //item select
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                let objMovieListingVC = self?.storyboard?.instantiateViewController(withIdentifier: "MovieListingVC") as! MovieListingVC
+                objMovieListingVC.keyword = (self?.searchVM.arrSearch.value[indexPath.row].text!)!
+                self?.navigationController?.pushViewController(objMovieListingVC, animated: true)
+            }).addDisposableTo(disposeBag)
         
-        let objMovieListingVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieListingVC") as! MovieListingVC
-        self.navigationController?.pushViewController(objMovieListingVC, animated: true)
+        //delete selected
+        tableView.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                
+                self?.searchVM.deleteKeyWordToDB(rowid: (self?.arrSearchKeyWords[indexPath.row].rowId!)!)
+                self?.getLastSearch()
+                
+            }).addDisposableTo(disposeBag)
     }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
-        return true
-    }
-    
-    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if (editingStyle == UITableViewCellEditingStyle.delete)
-        {
-            searchVM.deleteKeyWordToDB(rowid: arrSearchKeyWords[indexPath.row].rowId!)
-            getLastSearch()
-            // handle delete (by removing the data from your array and updating the tableview)
-        }
-    }
-    
-    // MARK: - Private instance methods
-
-    func presentSearchController(_ searchController: UISearchController) {
-        
+    private func setupCell(row: Int,search:Search, cell: UITableViewCell){
+        cell.textLabel?.text = search.text
+        cell.detailTextLabel?.text = search.text
     }
 }
 

@@ -6,6 +6,9 @@ PODS:
   - FMDB/standard (2.7.5)
   - FSPagerView (0.7.2)
   - PageMenu (2.0.0)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
@@ -17,6 +20,8 @@ DEPENDENCIES:
   - FMDB
   - FSPagerView (~> 0.7.1)
   - PageMenu
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
   - SDWebImage
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
 
@@ -27,6 +32,8 @@ SPEC REPOS:
     - FMDB
     - FSPagerView
     - PageMenu
+    - RxCocoa
+    - RxSwift
     - SDWebImage
 
 EXTERNAL SOURCES:
@@ -44,9 +51,11 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   FSPagerView: 7515f63c424da71623d299d4fbbfb3dd884642ff
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: cea939bd2e7c8ff26b881d38f4f07ffefff231bb
+PODFILE CHECKSUM: 0ed9d24fda6304a4c016376fea809a5d0aebbd32
 
 COCOAPODS: 1.6.0.beta.2

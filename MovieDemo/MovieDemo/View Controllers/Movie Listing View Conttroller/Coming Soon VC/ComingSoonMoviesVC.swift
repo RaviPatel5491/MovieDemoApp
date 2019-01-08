@@ -25,6 +25,9 @@ class ComingSoonMoviesVC: UIViewController, UITableViewDelegate, UITableViewData
     var arrMovies = [Movies]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tblMovies.contentInset = UIEdgeInsets.zero
+        
         getNowShowing()
         
         
