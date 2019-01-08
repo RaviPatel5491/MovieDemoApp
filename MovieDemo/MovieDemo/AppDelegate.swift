@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 
-        // SearchBar Proporties
+
         UISearchBar.appearance().tintColor = .white
         UINavigationBar.appearance().tintColor = .white
         

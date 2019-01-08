@@ -25,22 +25,11 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     @IBOutlet weak var lblPreSale: UILabel!
     
     var arrMovies = [Movies]()
-<<<<<<< HEAD
     var homeVM = HomeViewModel() {
         didSet {
             homeVM.arrMovies.bind = { [unowned self] in self.arrMovies = $0 }
         }
     }
-=======
-    var homeVM: HomeViewModel!
-    
-    // Mark:- NavigationBar Customisation
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    // Pager Initialize
->>>>>>> 13010c172e4f7a796c3cc60463252cdffd5835ad
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             
@@ -71,8 +60,13 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
         // Do any additional setup after loading the view.
     }
     
-    
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     // MARK:- Helping Methods
     func getHomeScreen()
     {
@@ -91,8 +85,6 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
             }
         }
     }
-    
-    
     func createNavigationBar()
     {
         self.title = "Movie"
@@ -172,9 +164,6 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
 }
