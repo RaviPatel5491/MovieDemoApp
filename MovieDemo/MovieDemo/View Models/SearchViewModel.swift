@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewModel {
+struct SearchViewModel {
 
     func addKeyWordToDB(keyword:String)
     {

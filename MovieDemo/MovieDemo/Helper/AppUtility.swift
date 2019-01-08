@@ -86,6 +86,10 @@ class AppUtility {
             }
         })
     }
+    static func searhUrl(keyword:String,Page:String)->String
+    {
+        return SEARCH_URL + "keyword=\(keyword)&offset=\(Page)"
+    }
    static func CheckConnection() -> Bool
     {
         var zeroAddress = sockaddr_in()

@@ -146,8 +146,15 @@ extension SearchVC: UISearchBarDelegate {
     // MARK: - UISearchBar Delegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
-        searchVM.addKeyWordToDB(keyword: searchBar.text!)
+        let trimmedString = searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedString.count == 0
+        {
+            AppUtility.alertWithTitle("", Message: "Please enter search text", Cancelbtn: "Ok", otherbutton: "")
+            return
+        }
+        searchVM.addKeyWordToDB(keyword: trimmedString)
         let objMovieListingVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieListingVC") as! MovieListingVC
+        objMovieListingVC.keyword = trimmedString
         self.navigationController?.pushViewController(objMovieListingVC, animated: true)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

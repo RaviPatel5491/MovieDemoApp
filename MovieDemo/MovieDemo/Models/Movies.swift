@@ -22,6 +22,8 @@ public class Movies {
 	public var age_category : String?
 	public var genre_ids : Array<Genre_ids>?
     public var genre_name : String?
+    public var description : String = ""
+
 
 /**
     Returns an array of models based on given dictionary.
@@ -62,6 +64,11 @@ public class Movies {
 		title = dictionary["title"] as? String
 		presale_flag = dictionary["presale_flag"] as? Int
 		age_category = dictionary["age_category"] as? String
+        
+        if let val = dictionary["description"] as? String
+        {
+            description = val
+        }
         if (dictionary["genre_ids"] != nil) { genre_ids = Genre_ids.modelsFromDictionaryArray(array: dictionary["genre_ids"] as! NSArray)
             
             if (genre_ids?.count)! > 0
@@ -103,6 +110,7 @@ public class Movies {
 		dictionary.setValue(self.title, forKey: "title")
 		dictionary.setValue(self.presale_flag, forKey: "presale_flag")
 		dictionary.setValue(self.age_category, forKey: "age_category")
+        dictionary.setValue(self.description, forKey: "description")
 
 		return dictionary
 	}

@@ -25,8 +25,11 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     @IBOutlet weak var lblPreSale: UILabel!
     
     var arrMovies = [Movies]()
-    var homeVM: HomeViewModel!
-    
+    var homeVM = HomeViewModel() {
+        didSet {
+            homeVM.arrMovies.bind = { [unowned self] in self.arrMovies = $0 }
+        }
+    }
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             
@@ -68,7 +71,6 @@ class HomeVC: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource {
     func getHomeScreen()
     {
         view.isHidden = true
-        homeVM = HomeViewModel()
         homeVM.fetchHomeData{ success , arrMovies in
             if success
             {

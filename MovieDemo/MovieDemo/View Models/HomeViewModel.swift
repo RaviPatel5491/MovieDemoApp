@@ -7,8 +7,23 @@
 //
 
 import UIKit
-
+class Dynamic<T> {
+    
+    var bind :(T) -> () = { _ in }
+    
+    var value :T? {
+        didSet {
+            bind(value!)
+        }
+    }
+    
+    init(_ v :T) {
+        value = v
+    }
+    
+}
 struct HomeViewModel {
+    var arrMovies : Dynamic<[Movies]> = Dynamic([Movies]())
 
     public func fetchHomeData(completionHandler: @escaping (Bool,[Movies]) -> ())
     {
@@ -22,9 +37,10 @@ struct HomeViewModel {
                 AppUtility.hideProgress()
                 
                 // parsign to get movie list
-                let array = response["results"]
-                let arrMovieDict = Movies.modelsFromDictionaryArray(array: array as! NSArray)
-                completionHandler(success,arrMovieDict)
+                let arrMovieDict = response["results"]
+                self.arrMovies.value = Movies.modelsFromDictionaryArray(array: arrMovieDict as! NSArray)
+                
+                completionHandler(success,self.arrMovies.value!)
             })
         }
         else

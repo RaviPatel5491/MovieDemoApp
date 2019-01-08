@@ -8,8 +8,45 @@
 
 import UIKit
 
-
-
+extension UITableView {
+    
+    func scrollToBottom(){
+        
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(
+                row: self.numberOfRows(inSection:  self.numberOfSections - 1) - 1,
+                section: self.numberOfSections - 1)
+            self.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    func scrollToTop() {
+        
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.scrollToRow(at: indexPath, at: .top, animated: false)
+        }
+    }
+}
+extension Date
+{
+    init(milliseconds:Int) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
+    }
+    
+    private func formatType(form: String) -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        let utc = NSTimeZone(abbreviation: "UTC")
+        dateFormatter.timeZone = utc as TimeZone?
+        dateFormatter.dateFormat = form
+        return dateFormatter
+    }
+    mutating func getReleasDate()->String
+    {
+        return formatType(form: "dd MMM yyyy").string(from: self as Date)
+    }
+    
+}
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

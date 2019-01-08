@@ -13,19 +13,19 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
     
     var pageMenu : CAPSPageMenu?
     
-
+    var keyword = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
         
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.default
         self.navigationController?.navigationBar.barTintColor  = UIColor.white
         self.navigationController?.navigationBar.tintColor  = UIColor.black
         
         setupPageMenu()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -42,10 +42,12 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         
         let objNowShowingMoviesVC = self.storyboard?.instantiateViewController(withIdentifier: "NowShowingMoviesVC") as! NowShowingMoviesVC
         objNowShowingMoviesVC.title = "Now Showing"
+        objNowShowingMoviesVC.keyword = self.keyword
         controllerArray.append(objNowShowingMoviesVC)
         
         let objComingSoonMoviesVC = self.storyboard?.instantiateViewController(withIdentifier: "ComingSoonMoviesVC") as! ComingSoonMoviesVC
         objComingSoonMoviesVC.title = "Coming Soon"
+        objComingSoonMoviesVC.keyword = self.keyword
         controllerArray.append(objComingSoonMoviesVC)
         
         // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
@@ -61,11 +63,10 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
             .menuItemSeparatorPercentageHeight(0),
             .selectedMenuItemLabelColor(UIColor.black),
             .scrollMenuBackgroundColor(UIColor.white),
-            .selectionIndicatorColor(UIColor.blue)
+            .selectionIndicatorColor(colorPrimary)
         ]
         
         let topMargin:CGFloat = UIApplication.shared.statusBarFrame.size.height+self.navigationController!.navigationBar.frame.size.height;
-        
         // Initialize page menu with controller array, frame, and optional parameters
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x:0.0, y:topMargin, width:self.view.frame.width, height:self.view.frame.height - topMargin), pageMenuOptions: menuParam)
         
@@ -76,15 +77,15 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         
         self.view.addSubview(pageMenu!.view)
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
