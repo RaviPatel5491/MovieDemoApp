@@ -18,15 +18,22 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
         self.navigationController?.isNavigationBarHidden = false
         
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.default
+=======
+        // NavigationBar Proporties
+>>>>>>> 13010c172e4f7a796c3cc60463252cdffd5835ad
         self.navigationController?.navigationBar.barTintColor  = UIColor.white
         self.navigationController?.navigationBar.tintColor  = UIColor.black
         
         setupPageMenu()
+<<<<<<< HEAD
         
         // Do any additional setup after loading the view.
+=======
+>>>>>>> 13010c172e4f7a796c3cc60463252cdffd5835ad
     }
     
     func setupPageMenu()
@@ -34,11 +41,6 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         // Array to keep track of controllers in page menu
         var controllerArray : [UIViewController] = []
         
-        // Create variables for all view controllers you want to put in the
-        // page menu, initialize them, and add each to the controller array.
-        // (Can be any UIViewController subclass)
-        // Make sure the title property of all view controllers is set
-        // Example:
         
         let objNowShowingMoviesVC = self.storyboard?.instantiateViewController(withIdentifier: "NowShowingMoviesVC") as! NowShowingMoviesVC
         objNowShowingMoviesVC.title = "Now Showing"
@@ -50,8 +52,7 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         objComingSoonMoviesVC.keyword = self.keyword
         controllerArray.append(objComingSoonMoviesVC)
         
-        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-        // Example:
+        // Customize page menu customization
         
         let menuParam: [CAPSPageMenuOption] = [
             .menuItemSeparatorWidth(1.0),
@@ -70,13 +71,11 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
         // Initialize page menu with controller array, frame, and optional parameters
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x:0.0, y:topMargin, width:self.view.frame.width, height:self.view.frame.height - topMargin), pageMenuOptions: menuParam)
         
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
-        
         pageMenu!.delegate = self
         
         self.view.addSubview(pageMenu!.view)
     }
+<<<<<<< HEAD
     
     /*
      // MARK: - Navigation
@@ -88,4 +87,6 @@ class MovieListingVC: UIViewController, CAPSPageMenuDelegate {
      }
      */
     
+=======
+>>>>>>> 13010c172e4f7a796c3cc60463252cdffd5835ad
 }
