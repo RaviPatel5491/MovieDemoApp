@@ -16,39 +16,10 @@ struct HomeViewModel {
 
     init() {
         // Load local data
+        fetchHomeScreen()
     }
   
-    
-    func fetchHomeScreen() -> Observable<[Movies]> {
-        if AppUtility.CheckConnection()
-        {
-            let url = URL(string: HOMEURL)
-            return URLSession.shared.rx.json(url: url!)
-                .retry(3)
-                //.catchErrorJustReturn([])
-                .map(parse)
-        }
-        else
-        {
-            //Hide progress
-            AppUtility.hideProgress()
-            AppUtility.alertForInternet()
-        }
-        return  Observable.just([])
-    }
-    
-     func parse(json: Any) -> [Movies] {
-        guard let items = json as? [[String: Any]]  else {
-            return []
-        }
-        
-        var array = [Movies]()
-        array =  Movies.modelsFromDictionaryArray(array: items as NSArray)
-        return array
-    }
-    
-    public func fetchHomeData(completionHandler: @escaping (Bool,[Movies]) -> ())
-    {
+    func fetchHomeScreen() {
         //show progress
         AppUtility.showProgress(text: PROGRESS_GETTINGMOVIES)
         if AppUtility.CheckConnection()
@@ -61,7 +32,6 @@ struct HomeViewModel {
                 // parsign to get movie list
                 let arrMovieDict = response[RESPONSE_RESULT]
                 self.arrMovies.value = Movies.modelsFromDictionaryArray(array: arrMovieDict as! NSArray)
-                completionHandler(success,self.arrMovies.value)
             })
         }
         else
@@ -71,4 +41,5 @@ struct HomeViewModel {
             AppUtility.alertForInternet()
         }
     }
+   
 }

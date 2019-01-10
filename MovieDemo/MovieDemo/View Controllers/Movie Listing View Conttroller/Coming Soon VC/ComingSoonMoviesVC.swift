@@ -12,6 +12,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SDWebImage
 class ComingSoonMoviesVC: UIViewController {
     
     
